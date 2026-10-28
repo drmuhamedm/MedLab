@@ -279,7 +279,7 @@ window.addEventListener('message',e=>{if(e.source!==parent||e.data?.type!=='lab-
 
 choose(0);update();drawSteps();resize();loop();initMobile();startPhotoBoard();for(const id of ['anatomyPhoto'])$(id).onclick=()=>{$('photoTitle').textContent=parts[selected][0];$('largePhoto').src=partPhotos[selected];$('largePhoto').alt=parts[selected][0];$('photoCaption').textContent=$('anatomyPhotoNote').textContent;$('photoToPart').hidden=true;setPhotoPaused(true);$('photoDialog').showModal();$('closePhoto').focus()};
 
-window.addEventListener('message',e=>{if(e.source!==parent||e.data?.type!=='lab-navigate')return;const section=['home','parts','photo','free','notes','quiz'].includes(e.data.section)?e.data.section:'home';openDeviceSection(section);if(section==='parts'&&Number.isInteger(e.data.part)&&e.data.part>=0&&e.data.part<15)choose(e.data.part,true)});
+window.addEventListener('message',e=>{if(e.source!==parent||e.data?.type!=='lab-navigate')return;const section=['home','parts','photo','free','notes','quiz'].includes(e.data.section)?e.data.section:'home';openDeviceSection(section);if(['parts','photo'].includes(section)&&Number.isInteger(e.data.part)&&e.data.part>=0&&e.data.part<15)choose(e.data.part,true)});
 </script>
 <!-- Three.js MIT License (renderer library only)
 Copyright (c) 2010-2024 Three.js authors
@@ -299,4 +299,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-</body></html>
+<script src="../scripts/runtime-learning.js"></script></body></html>
